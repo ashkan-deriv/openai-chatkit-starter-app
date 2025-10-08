@@ -42,7 +42,68 @@ npm run dev
 
 Visit `http://localhost:3000` and start chatting. Use the prompts on the start screen to verify your workflow connection, then customize the UI or prompt list in [`lib/config.ts`](lib/config.ts) and [`components/ChatKitPanel.tsx`](components/ChatKitPanel.tsx).
 
-### 5. Build for production (optional)
+### 5. Deploy to Vercel
+
+The easiest way to deploy this Next.js app is to use [Vercel](https://vercel.com), the platform built by the creators of Next.js.
+
+#### Deploy with Vercel (Recommended)
+
+1. **Push your code to GitHub** (if you haven't already):
+   ```bash
+   git add .
+   git commit -m "Prepare for Vercel deployment"
+   git push origin main
+   ```
+
+2. **Sign up for Vercel** at [vercel.com](https://vercel.com) (free tier available)
+
+3. **Import your repository**:
+   - Click "Add New..." → "Project" in your Vercel dashboard
+   - Select your GitHub repository
+   - Vercel will automatically detect Next.js settings
+
+4. **Configure Environment Variables**:
+   Before deploying, add these environment variables in the Vercel dashboard:
+   - `OPENAI_API_KEY` - Your OpenAI API key (required)
+   - `NEXT_PUBLIC_CHATKIT_WORKFLOW_ID` - Your ChatKit workflow ID (required)
+   - `CHATKIT_API_BASE` - Custom API base URL (optional)
+
+5. **Add Your Domain to ChatKit Allowlist** (After first deployment):
+   - Go to [ChatKit domain allowlist](https://platform.openai.com/settings/organization/security/domain-allowlist)
+   - Add your Vercel deployment URL (e.g., `https://your-app.vercel.app`)
+   - Wait a few moments for verification to propagate
+
+6. **Deploy**:
+   - Click "Deploy"
+   - Vercel will build and deploy your app
+   - You'll get a production URL (e.g., `your-app.vercel.app`)
+
+#### Automatic Deployments
+
+Once connected to Vercel:
+- Every push to `main` branch triggers a production deployment
+- Pull requests automatically get preview deployments
+- Environment variables are securely managed in Vercel dashboard
+
+#### Deploy with Vercel CLI (Alternative)
+
+```bash
+# Install Vercel CLI
+npm i -g vercel
+
+# Login to Vercel
+vercel login
+
+# Deploy
+vercel
+
+# Deploy to production
+vercel --prod
+```
+
+#### Local Production Build (Optional)
+
+To test a production build locally before deploying:
 
 ```bash
 npm run build

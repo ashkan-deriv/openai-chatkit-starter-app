@@ -2,6 +2,7 @@
 
 import { useCallback } from "react";
 import { ChatKitPanel, type FactAction } from "@/components/ChatKitPanel";
+import { SupportedBrands } from "@/components/SupportedBrands";
 import { useColorScheme } from "@/hooks/useColorScheme";
 
 export default function App() {
@@ -21,13 +22,16 @@ export default function App() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-slate-100 px-6 py-6 dark:bg-slate-950">
-      <div className="mx-auto w-full max-w-5xl">
-        <ChatKitPanel
-          theme={scheme}
-          onWidgetAction={handleWidgetAction}
-          onResponseEnd={handleResponseEnd}
-          onThemeRequest={setScheme}
-        />
+      <div className="mx-auto w-full max-w-7xl">
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-[300px_1fr]">
+          <SupportedBrands />
+          <ChatKitPanel
+            theme={scheme}
+            onWidgetAction={handleWidgetAction}
+            onResponseEnd={handleResponseEnd}
+            onThemeRequest={setScheme}
+          />
+        </div>
       </div>
     </main>
   );
