@@ -25,6 +25,18 @@ export function SupportedBrands() {
           <span className="mr-2 text-blue-500">•</span>
           OKX
         </li>
+        <li className="flex items-center">
+          <span className="mr-2 text-blue-500">•</span>
+          Weex
+        </li>
+        <li className="flex items-center">
+          <span className="mr-2 text-blue-500">•</span>
+          Bitmart
+        </li>
+        <li className="flex items-center">
+          <span className="mr-2 text-blue-500">•</span>
+          Mexc
+        </li>
       </ul>
     </div>
   );
